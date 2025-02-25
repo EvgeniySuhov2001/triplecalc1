@@ -31,13 +31,13 @@
 <div class="alert alert-primary center" role="alert">
 <div class="input-group">
     <span class="input-group-text">Не согласен с показаниями "Сети", Сетевой участок Россети МР; Дата сети
-  <input class="date" oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="sDate">; То
+  <input oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="sDate">; То
   <input type="text" style="width: 60px" maxlength="6" id="sT0"> ; Т1 
   <input type="text" style="width: 60px" maxlength="6" id="sT1"> ; Т2 
   <input type="text" style="width: 60px" maxlength="6" id="sT2"> ; Т3
   <input type="text" style="width: 60px" maxlength="6" id="sT3"> ;
     </span><span class="input-group-text">Дата кл 
-  <input class="date" oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="cDate">; То 
+  <input class="thisDate" oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="cDate">; То 
   <input type="text" style="width: 60px" maxlength="6" id="cT0"> ; Т1 
   <input type="text" style="width: 60px" maxlength="6" id="cT1"> ; Т2 
   <input type="text" style="width: 60px" maxlength="6" id="cT2"> ; Т3 
@@ -50,13 +50,13 @@
 <div class="alert alert-primary center" role="alert">
 <div class="input-group">
     <span class="input-group-text">Клиент ошибочно передал показания
-  <input class="date" oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="fDate">; То
+  <input oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="fDate">; То
   <input type="text" style="width: 60px" maxlength="6" id="fT0"> ; Т1 
   <input type="text" style="width: 60px" maxlength="6" id="fT1"> ; Т2 
   <input type="text" style="width: 60px" maxlength="6" id="fT2"> ; Т3
   <input type="text" style="width: 60px" maxlength="6" id="fT3"> ;
     </span><span class="input-group-text">Корректировочные показания на 
-  <input class="date" oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="tDate">; То 
+  <input oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="tDate">; То 
   <input type="text" style="width: 60px" maxlength="6" id="tT0"> ; Т1 
   <input type="text" style="width: 60px" maxlength="6" id="tT1"> ; Т2 
   <input type="text" style="width: 60px" maxlength="6" id="tT2"> ; Т3 
@@ -69,13 +69,13 @@
 <div class="alert alert-primary center" role="alert">
 <div class="input-group">
     <span class="input-group-text">
-  <input class="date" oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="f1Date"> клиент ошибочно передал показания То-
+  <input oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="f1Date"> клиент ошибочно передал показания То-
   <input type="text" style="width: 60px" maxlength="6" id="f1T0">, Т1-
   <input type="text" style="width: 60px" maxlength="6" id="f1T1">, Т2-
   <input type="text" style="width: 60px" maxlength="6" id="f1T2">, Т3-
   <input type="text" style="width: 60px" maxlength="6" id="f1T3">, данные показания необходимо удалить.
     </span><span class="input-group-text">Корректные показания на 
-  <input class="date" oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="t1Date"> То-
+  <input class="thisDate" oninput="formatDate(this)" type="text" maxlength="10" placeholder="ХХ.ХХ.ХХХХ" style="width: 90px" id="t1Date"> То-
   <input type="text" style="width: 60px" maxlength="6" id="t1T0">, Т1- 
   <input type="text" style="width: 60px" maxlength="6" id="t1T1">, Т2- 
   <input type="text" style="width: 60px" maxlength="6" id="t1T2">, Т3- 
@@ -107,9 +107,9 @@
   </thead>
   <tbody>
 <script type="text/javascript">
-  const month = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+  const month_1 = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
   const d = new Date();
-  if (d.getMonth() == 0) {var name = month[d.getMonth()+11]} else {var name = month[d.getMonth()-1]}
+  if (d.getMonth() == 0) {var name = month_1[d.getMonth()+11]} else {var name = month_1[d.getMonth()-1]}
     document.write(`
     <tr>
       <td scope="row">Клиент не получил квитанцию за ${name} (месяц). В ЛС адрес клиента указан верно (сотрудник должен сверить адрес доставки ПД);</td>
@@ -274,6 +274,16 @@
     }
     //Письма
 
+        // Получаем текущую дату
+        const currentDate = new Date();
+
+        // Форматируем день и месяц с ведущими нулями
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+
+        // Форматируем дату в "дд.мм.гггг"
+        const formattedDate = `${day}.${month}.${currentDate.getFullYear()}`;
+        $('.thisDate').attr('value', formattedDate)
     function formatDate(input) {
         let value = input.value.replace(/\D/g, ''); // Удаляем все символы, кроме цифр
         if (value.length > 2) value = value.slice(0, 2) + '.' + value.slice(2); // Вставляем первую точку
